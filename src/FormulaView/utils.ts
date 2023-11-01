@@ -7,7 +7,8 @@ const isData = (item: FormulaData) => {
 
 const specialDispose = (item: FormulaData, callback: any) => {
   const specialOperator =
-    item.type === 'operator' && ['abs', 'sum'].includes(item.value || '');
+    item.type === 'operator' &&
+    ['abs', 'sum'].includes(String(item.value) || '');
 
   if (specialOperator) {
     return `${item.value}(${callback()})`;
