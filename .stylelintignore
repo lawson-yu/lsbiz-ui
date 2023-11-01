@@ -1,0 +1,4 @@
+*.yaml
+/dist
+/docs-dist
+/node_modules

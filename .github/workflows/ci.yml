@@ -1,0 +1,24 @@
+name: lsbioz-ui
+
+# 只有在master分支发生push事件时触发
+on:
+  push:
+    branches:
+      - master # 运行环境
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # 打包代码
+      - name: Build Project
+        run: |
+          npm install
+          npm run docs:build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./docs-dist
