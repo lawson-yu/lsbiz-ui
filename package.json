@@ -1,16 +1,31 @@
 {
   "name": "lsbiz-ui",
   "version": "1.0.0",
-  "description": "formula components",
+  "private": false,
+  "description": "React Formula Calculation Component",
+  "keywords": [
+    "react",
+    "components",
+    "codemirror",
+    "formula"
+  ],
   "license": "MIT",
+  "author": "LawsonLee",
+  "homepage": "https://lawson-yu.github.io/lsbiz-ui",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lawson-yu/lsbiz-ui.git"
+  },
   "files": [
+    "docs-dist",
     "dist"
   ],
   "scripts": {
     "build": "father build",
     "build:watch": "father dev",
+    "deploy": "gh-pages -d docs-dist",
     "dev": "dumi dev",
     "docs:build": "dumi build",
     "doctor": "father doctor",
@@ -19,8 +34,7 @@
     "lint:es": "eslint '**/*.{js,jsx,ts,tsx}'",
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
-    "start": "npm run dev",
-    "deploy": "gh-pages -d docs-dist"
+    "start": "npm run dev"
   },
   "commitlint": {
     "extends": [
